@@ -5,13 +5,20 @@
 
 using namespace std;
 
+//altere aqui a quantidade de missionarios e canibais
 const int NUM_PEOPLE = 6;
 
+//estrutura que representa o estado atual
+//missionaries: represnta a quantidade de missionarios no lado atual
+//cannibals: representa a quantidade de canibais no lado atual
+//boat: representa a posicao do barco (0 para o lado inicial, 1 para o lado final)
+//parent: índice é utilizado para rastrear a sequência de estados que leva ao estado atual durante a busca em largura.
 struct State {
   int missionaries, cannibals, boat;
   int parent;
 };
 
+//funcao que retorna se e um estado valido de acordo com as restricoes do problema
 bool is_valid(int missionaries, int cannibals, int boat) {
   return (missionaries >= 0 && missionaries <= NUM_PEOPLE / 2) &&
          (cannibals >= 0 && cannibals <= NUM_PEOPLE / 2) &&
@@ -20,6 +27,7 @@ bool is_valid(int missionaries, int cannibals, int boat) {
          (boat == 0 || boat == 1);
 }
 
+//implementa a busca em largura
 int bfs(State initial_state, State final_state) {
   queue<State> q;
   unordered_set<int> visited;
@@ -64,7 +72,7 @@ int bfs(State initial_state, State final_state) {
 }
 
 int main() {
-  //alterar aqui para receber entrada do usuario, ou alterar a quantidade de pessoas e o estado final
+  //alterar aqui para receber entrada do usuario
   State initial_state = {NUM_PEOPLE / 2, NUM_PEOPLE / 2, 0};
   State final_state = {0, 0, 1};
   cout << "O numero de passos necessarios é:" << bfs(initial_state, final_state) << endl;

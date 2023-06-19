@@ -131,7 +131,6 @@ int busca(int estacao_origem, int estacao_destino){
 
 }
 
-//principal
 void main(){
     //alterar aqui para receber entrada do usuario, ou alterar a estacao de origem/estacao de destino
     int estacao_origem = 1, estacao_destino = 4;

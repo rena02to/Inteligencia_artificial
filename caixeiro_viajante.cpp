@@ -81,13 +81,13 @@ vector<int> hill_climbing() {
     return estado_atual;
 }
 
-// função main que executa a busca e imprime a rota encontrada
 int main() {
     vector<int> rota = hill_climbing();
     cout << "Rota encontrada: ";
     for (int i = 0; i < rota.size(); i++) {
         cout << rota[i] << " ";
     }
+
     cout << endl;
     cout << "Distancia total percorrida: " << distancia_total(rota) << " km" << endl;
     return 0;
