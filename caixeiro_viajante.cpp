@@ -22,6 +22,7 @@ const int distancias[10][10] = {
 };
 
 // define o estado inicial da busca
+//alterar aqui o estado inicial, caso seja necessaio (o estado final e atualizado ao atualizar o inicial)
 vector<int> estado_inicial = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 // função que calcula a distância percorrida em uma rota
