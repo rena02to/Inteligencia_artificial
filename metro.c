@@ -3,6 +3,7 @@
 #include <conio.h>
 #define MAX 14
 
+//matriz de distancias
 int dist [MAX][MAX] = {
     {0, 11, 20, 27, 40, 43, 39, 28, 18, 10, 18, 30, 30, 32},
     {11, 0, 9, 16, 29, 32, 28, 19, 11, 4, 17, 23, 21, 24},
@@ -20,6 +21,7 @@ int dist [MAX][MAX] = {
     {32, 24, 18, 17, 20, 20, 17, 30, 28, 23, 39, 37, 5, 0}
 };
 
+//matriz de conexoes
 int conexao[MAX][MAX] = {
     {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
@@ -37,6 +39,7 @@ int conexao[MAX][MAX] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}
 };
 
+//matriz que indica qual linha tem conexao com qual
 //1 = azul, 2 = amarelo, 3 = vermelho, 4 = verde
 int linha[MAX][MAX] = {
     {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -55,10 +58,13 @@ int linha[MAX][MAX] = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0}
 };
 
+//funcao para calcular o tempo de viagem entre duas estacoes
 int tempo(int estacao_origem, int estacao_destino){
     return(dist[estacao_origem][estacao_destino] * 2);
 }
 
+//retorna a melhor rota entre duas estacoes usando o algoritmo A*
+//printa a rota que foi usanda para chegar no destino
 int busca(int estacao_origem, int estacao_destino){
     int i = 0;
     int posicao = 0;
@@ -115,6 +121,7 @@ int busca(int estacao_origem, int estacao_destino){
         if((linha_estacao[posicao] != linha_estacao[posicao - 1]) && (linha_estacao[posicao] != 0 && linha_estacao[posicao -1 ] != 0)){
             tempo_total = tempo_total + 4;
         }
+
         printf("ESTACAO_%d -> ESTACAO_%d TEMPO: %d Minutos\n", no_pai+1, no_melhor+1, tempo_viagem[posicao-1]);
         no_pai = no_melhor;
         posicao++;
@@ -124,7 +131,9 @@ int busca(int estacao_origem, int estacao_destino){
 
 }
 
+//principal
 void main(){
+    //alterar aqui para receber entrada do usuario, ou alterar a estacao de origem/estacao de destino
     int estacao_origem = 1, estacao_destino = 4;
     printf("TEMPO TOTAL: %d", busca(estacao_origem-1, estacao_destino-1));
 }
