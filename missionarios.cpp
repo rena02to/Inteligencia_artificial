@@ -64,6 +64,7 @@ int bfs(State initial_state, State final_state) {
 }
 
 int main() {
+  //alterar aqui para receber entrada do usuario, ou alterar a quantidade de pessoas e o estado final
   State initial_state = {NUM_PEOPLE / 2, NUM_PEOPLE / 2, 0};
   State final_state = {0, 0, 1};
   cout << "O numero de passos necessarios é:" << bfs(initial_state, final_state) << endl;
