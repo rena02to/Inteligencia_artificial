@@ -11,5 +11,5 @@
   jogo-velha(pasta) | Implementa o jogo da velha usando minimax (similar ao brute force, nesse caso, por testar todas as posicoes e retornar a melhor).
 </div>
 <div align="center">
-  OBS.: Todos os algoritmos recebem os dados (estacao de inicio/fim, por exemplo) ja no codigo, se for necessario alterar no codigo para receber a entrada ou alterar o valor das variaveis.
+  OBS.: Os tres primeiros algoritmos recebem os dados (estacao de inicio/fim, por exemplo) direto no no codigo, portanto, se for necessario alterar esse formato para receber entradas será necessário atualizar o codigo para receber o input, ou atualizar as variaveis no codigo.
 </div>
